@@ -1,17 +1,27 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Linkedin, Github, Mail, Download, User } from "lucide-react";
+import { ChevronDown, Linkedin, Github, Mail, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBackground from "@/assets/hero-background.jpg";
+import profilePicture from "@/assets/PXL_20250809_130016659~2.jpg";
 
 const HeroSection = () => {
   const scrollToTimeline = () => {
     document.getElementById("timeline")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/Srijan Varma_CV.pdf';
+    link.download = 'Srijan_Varma_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Hero background image */}
-      <div 
+      <div
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: `url(${heroBackground})`,
@@ -19,8 +29,8 @@ const HeroSection = () => {
           backgroundPosition: 'center',
         }}
       >
-        {/* Overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+        {/* Overlay for readability - lighter overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background/60" />
       </div>
       
       {/* Floating orbs */}
@@ -38,30 +48,30 @@ const HeroSection = () => {
       />
 
       {/* Social links */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.2, duration: 0.6 }}
         className="fixed top-8 right-8 z-50 flex gap-4"
       >
-        <a 
-          href="https://linkedin.com" 
-          target="_blank" 
+        <a
+          href="https://www.linkedin.com/in/srijan-varma-iift/"
+          target="_blank"
           rel="noopener noreferrer"
           className="p-3 glass rounded-full hover-lift hover:glow-cyan transition-all"
         >
           <Linkedin className="w-5 h-5 text-foreground" />
         </a>
-        <a 
-          href="https://github.com" 
-          target="_blank" 
+        <a
+          href="https://github.com/K00LNERD"
+          target="_blank"
           rel="noopener noreferrer"
           className="p-3 glass rounded-full hover-lift hover:glow-cyan transition-all"
         >
           <Github className="w-5 h-5 text-foreground" />
         </a>
-        <a 
-          href="mailto:placements@iift.edu"
+        <a
+          href="mailto:nsrijan90@gmail.com"
           className="p-3 glass rounded-full hover-lift hover:glow-cyan transition-all"
         >
           <Mail className="w-5 h-5 text-foreground" />
@@ -84,18 +94,13 @@ const HeroSection = () => {
               {/* Animated glow ring */}
               <div className="absolute -inset-2 bg-gradient-to-r from-primary via-secondary to-primary rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity animate-pulse-glow" />
               
-              {/* Profile picture placeholder */}
+              {/* Profile picture */}
               <div className="relative w-40 h-40 md:w-52 md:h-52 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-primary/30 glass">
-                {/* Replace this placeholder with actual image */}
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                  <User className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 text-primary/50" />
-                </div>
-                {/* When you have an image, use this instead: */}
-                {/* <img 
-                  src="/path-to-your-photo.jpg" 
+                <img
+                  src={profilePicture}
                   alt="Srijan Varma"
                   className="w-full h-full object-cover"
-                /> */}
+                />
               </div>
               
               {/* Status badge */}
@@ -117,26 +122,28 @@ const HeroSection = () => {
               className="mb-6"
             >
               <span className="inline-block px-4 py-2 glass rounded-full text-sm font-medium text-primary mb-6">
-                Product Manager • Blockchain Architect • MBA Candidate
+                Product Manager • Blockchain DEV • MBA (Strategy Major)
               </span>
             </motion.div>
 
             {/* Side by side name */}
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
+              style={{ textShadow: '0 0 30px rgba(0, 0, 0, 0.8), 0 0 60px rgba(0, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9)' }}
             >
-              <span className="text-gradient">SRIJAN</span>
+              <span className="text-foreground">SRIJAN</span>
               <span className="text-foreground ml-4 md:ml-6">VARMA</span>
             </motion.h1>
 
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed"
+              className="text-lg md:text-xl text-white max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed"
+              style={{ textShadow: '0 0 20px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 0, 0, 0.7), 1px 1px 3px rgba(0, 0, 0, 0.95)' }}
             >
               From Code to Product: Bridging{" "}
               <span className="text-primary font-medium">Blockchain Innovation</span>{" "}
@@ -157,10 +164,11 @@ const HeroSection = () => {
                 Explore My Journey
                 <ChevronDown className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform" />
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
+              <Button
+                variant="outline"
+                size="lg"
                 className="px-8 py-6 text-lg font-medium rounded-full border-border hover:bg-muted hover:border-primary/50 transition-all"
+                onClick={handleDownloadCV}
               >
                 <Download className="mr-2 w-5 h-5" />
                 Download CV

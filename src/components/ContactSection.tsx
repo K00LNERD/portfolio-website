@@ -1,8 +1,17 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Github, Download, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ContactSection = () => {
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/Srijan Varma_CV.pdf';
+    link.download = 'Srijan_Varma_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="py-24 relative">
       <div className="container mx-auto px-6">
@@ -24,7 +33,7 @@ const ContactSection = () => {
           {/* Contact cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <motion.a
-              href="mailto:placements@iift.edu"
+              href="mailto:nsrijan90@gmail.com"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -33,11 +42,11 @@ const ContactSection = () => {
             >
               <Mail className="w-8 h-8 text-primary mb-4 mx-auto group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-foreground mb-2">Email</h3>
-              <p className="text-sm text-muted-foreground">placements@iift.edu</p>
+              <p className="text-sm text-muted-foreground">nsrijan90@gmail.com</p>
             </motion.a>
 
             <motion.a
-              href="tel:01139147305"
+              href="tel:6264743015"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -46,7 +55,7 @@ const ContactSection = () => {
             >
               <Phone className="w-8 h-8 text-primary mb-4 mx-auto group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-foreground mb-2">Phone</h3>
-              <p className="text-sm text-muted-foreground">011-39147305</p>
+              <p className="text-sm text-muted-foreground">+91 626 474 3015</p>
             </motion.a>
 
             <motion.div
@@ -71,7 +80,7 @@ const ContactSection = () => {
             className="flex justify-center gap-4 mb-12"
           >
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/srijan-varma-iift/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-4 glass rounded-full hover-lift hover:glow-cyan transition-all"
@@ -79,7 +88,7 @@ const ContactSection = () => {
               <Linkedin className="w-6 h-6" />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/K00LNERD"
               target="_blank"
               rel="noopener noreferrer"
               className="p-4 glass rounded-full hover-lift hover:glow-cyan transition-all"
@@ -88,28 +97,21 @@ const ContactSection = () => {
             </a>
           </motion.div>
 
-          {/* CTA buttons */}
+          {/* CTA button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
             viewport={{ once: true }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex justify-center"
           >
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-medium rounded-full glow-cyan"
+              onClick={handleDownloadCV}
             >
               <Download className="mr-2 w-5 h-5" />
               Download CV
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="px-8 py-6 text-lg font-medium rounded-full border-border hover:bg-muted hover:border-primary/50 transition-all"
-            >
-              <Send className="mr-2 w-5 h-5" />
-              Send Message
             </Button>
           </motion.div>
         </motion.div>

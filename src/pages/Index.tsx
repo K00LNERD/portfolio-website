@@ -8,6 +8,34 @@ import ImpactDashboard from "@/components/ImpactDashboard";
 import PersonalSection from "@/components/PersonalSection";
 import ContactSection from "@/components/ContactSection";
 import techBackground from "@/assets/tech-background.jpg";
+import cars24Image1 from "@/assets/cars24-1.jpeg";
+import cars24Image2 from "@/assets/cars24-2.jpeg";
+import anarchyImage1 from "@/assets/anarchy-1.png";
+import anarchyImage2 from "@/assets/anarchy-2.png";
+import supakiImage1 from "@/assets/supaki-1.png";
+import supakiImage2 from "@/assets/supaki-2.png";
+import supakiImage3 from "@/assets/Supaki-3.png";
+import ethixImage1 from "@/assets/ethixslabs-1.png";
+import ethixImage2 from "@/assets/ethixslabs-2.png";
+import ethixImage3 from "@/assets/ethixslabs-3.png";
+import iiftImage1 from "@/assets/iift-1.jpeg";
+import iiftImage2 from "@/assets/iift-2.jpeg";
+import vitImage1 from "@/assets/vit-1.jpeg";
+import vitImage2 from "@/assets/vit-2.jpeg";
+import travelImage1 from "@/assets/t-1.jpeg";
+import travelImage2 from "@/assets/t-2.jpeg";
+import travelImage3 from "@/assets/t-3.jpeg";
+import travelImage4 from "@/assets/t-4.jpeg";
+import travelImage5 from "@/assets/t-5.jpeg";
+import travelImage6 from "@/assets/t-6.jpeg";
+import travelImage7 from "@/assets/t-7.jpeg";
+import travelImage8 from "@/assets/t-8.jpeg";
+import travelImage9 from "@/assets/t-9.jpeg";
+import travelImage10 from "@/assets/t-10.jpeg";
+import travelImage11 from "@/assets/t-11.jpeg";
+import travelImage12 from "@/assets/t-12.jpeg";
+import travelImage13 from "@/assets/t-13.jpeg";
+import travelImage14 from "@/assets/t-14.jpeg";
 
 const Index = () => {
   return (
@@ -66,6 +94,11 @@ const Index = () => {
                   { value: 10000, suffix: "+", label: "Records Validated" },
                 ]}
                 technologies={["Python", "BRE Systems", "Data Validation", "Process Optimization"]}
+                media={[
+                  { type: "image", url: cars24Image1, aspectRatio: "landscape" },
+                  { type: "image", url: cars24Image2, aspectRatio: "portrait" },
+                ]}
+                customMediaLayout={true}
                 isCurrent={true}
                 variant="highlight"
               />
@@ -92,6 +125,12 @@ const Index = () => {
                     "Established technical architecture for scalable gaming platform",
                   ]}
                   technologies={["Solidity", "Web3.js", "NFT Standards", "WaaS", "Play-to-Earn"]}
+                  media={[
+                    { type: "image", url: anarchyImage1, aspectRatio: "landscape" },
+                    { type: "image", url: anarchyImage2, aspectRatio: "landscape" },
+                    { type: "video", url: "/anarchy-3.webm", aspectRatio: "landscape" },
+                  ]}
+                  customMediaLayout={true}
                 />
                 
                 <ExperienceCard
@@ -111,6 +150,12 @@ const Index = () => {
                     { value: 6, label: "Developers Led" },
                   ]}
                   technologies={["Algorand", "Smart Contracts", "NFT Marketplace", "DeFi", "PyTeal"]}
+                  media={[
+                    { type: "image", url: ethixImage1, aspectRatio: "landscape" },
+                    { type: "image", url: ethixImage2, aspectRatio: "landscape" },
+                    { type: "image", url: ethixImage3, aspectRatio: "landscape" },
+                  ]}
+                  customMediaLayout={true}
                 />
               </div>
             </TimelineTile>
@@ -140,6 +185,12 @@ const Index = () => {
                   { value: 250, suffix: "K", label: "NFTs Created" },
                 ]}
                 technologies={["Algorand", "NFT Templates", "Wallet Integration", "APIs"]}
+                media={[
+                  { type: "image", url: supakiImage1, aspectRatio: "landscape" },
+                  { type: "image", url: supakiImage2, aspectRatio: "landscape" },
+                  { type: "image", url: supakiImage3, aspectRatio: "landscape" },
+                ]}
+                customMediaLayout={true}
               />
             </TimelineTile>
 
@@ -166,6 +217,10 @@ const Index = () => {
                     { name: "Product Management Marketing", provider: "Udemy", year: "2024" },
                     { name: "Product Management 101", provider: "Udemy", year: "2024" },
                   ]}
+                  media={[
+                    { type: "image", url: iiftImage1 },
+                    { type: "image", url: iiftImage2 },
+                  ]}
                 />
 
                 <EducationCard
@@ -181,6 +236,10 @@ const Index = () => {
                   ]}
                   certifications={[
                     { name: "Computational Vision", provider: "University of Colorado Boulder", year: "2020" },
+                  ]}
+                  media={[
+                    { type: "image", url: vitImage1 },
+                    { type: "image", url: vitImage2 },
                   ]}
                 />
                 
@@ -210,7 +269,24 @@ const Index = () => {
               subtitle="Digital Nomad • Travel Adventures"
               icon="personal"
             >
-              <PersonalSection embedded />
+              <PersonalSection
+                embedded
+                travelPhotos={[
+                  { url: travelImage11, aspectRatio: "square" },
+                  { url: travelImage1, aspectRatio: "landscape" },
+                  { url: travelImage3, aspectRatio: "portrait" },
+                  { url: travelImage4, aspectRatio: "square" },
+                  { url: travelImage5, aspectRatio: "portrait" },
+                  { url: travelImage6, aspectRatio: "square" },
+                  { url: travelImage2, aspectRatio: "landscape" },
+                  { url: travelImage8, aspectRatio: "portrait" },
+                  { url: travelImage7, aspectRatio: "square" },
+                  { url: travelImage10, aspectRatio: "square" },
+                  { url: travelImage12, aspectRatio: "square" },
+                  { url: travelImage13, aspectRatio: "square" },
+                  { url: travelImage14, aspectRatio: "square" },
+                ]}
+              />
             </TimelineTile>
           </div>
         </div>

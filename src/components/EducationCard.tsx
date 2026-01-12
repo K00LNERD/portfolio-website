@@ -43,9 +43,9 @@ const EducationCard = ({
       viewport={{ once: true }}
       className="glass p-6 md:p-8 rounded-2xl hover-glow"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <div className={`grid grid-cols-1 ${media.length > 0 ? 'lg:grid-cols-4' : ''} gap-6`}>
         {/* Main content - 3/4 width */}
-        <div className="lg:col-span-3 space-y-5">
+        <div className={`${media.length > 0 ? 'lg:col-span-3' : ''} space-y-5`}>
           <div className="flex items-start gap-4">
             <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
               <GraduationCap className="w-6 h-6 text-primary" />
@@ -112,13 +112,14 @@ const EducationCard = ({
           )}
         </div>
 
-        {/* Media Gallery - 1/4 width */}
-        <div className="lg:col-span-1">
-          <h4 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-2">
-            Photos
-          </h4>
-          <div className="grid grid-cols-2 lg:grid-cols-1 gap-2">
-            {displayMedia.map((item, index) => (
+        {/* Media Gallery - 1/4 width - Only show if media is provided */}
+        {media.length > 0 && (
+          <div className="lg:col-span-1">
+            <h4 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-2">
+              Photos
+            </h4>
+            <div className="grid grid-cols-2 lg:grid-cols-1 gap-2">
+              {displayMedia.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -144,8 +145,9 @@ const EducationCard = ({
                 )}
               </motion.div>
             ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </motion.div>
   );

@@ -14,6 +14,7 @@ interface MediaItem {
   type: "image" | "video";
   url?: string;
   placeholder?: boolean;
+  aspectRatio?: "landscape" | "portrait";
 }
 
 interface ExperienceCardProps {
@@ -28,6 +29,7 @@ interface ExperienceCardProps {
   media?: MediaItem[];
   isCurrent?: boolean;
   variant?: "default" | "highlight";
+  customMediaLayout?: boolean;
 }
 
 const ExperienceCard = ({
@@ -42,6 +44,7 @@ const ExperienceCard = ({
   media = [],
   isCurrent = false,
   variant = "default",
+  customMediaLayout = false,
 }: ExperienceCardProps) => {
   // Default to 3 placeholder media items if none provided
   const displayMedia = media.length > 0 ? media : [
@@ -62,12 +65,12 @@ const ExperienceCard = ({
           : "glass"
       }`}
     >
-      {/* Current badge */}
+      {/* Latest badge */}
       {isCurrent && (
         <div className="absolute -top-3 right-8">
           <Badge className="bg-success/20 text-success border-success/30 px-4 py-1 animate-pulse-glow">
             <span className="w-2 h-2 bg-success rounded-full mr-2 inline-block" />
-            Current
+            Latest
           </Badge>
         </div>
       )}
@@ -158,7 +161,7 @@ const ExperienceCard = ({
           <h4 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-3">
             Gallery
           </h4>
-          <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
+          <div className={customMediaLayout ? "grid grid-cols-1 gap-3" : "grid grid-cols-2 lg:grid-cols-1 gap-3"}>
             {displayMedia.map((item, index) => (
               <motion.div
                 key={index}
@@ -166,7 +169,7 @@ const ExperienceCard = ({
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="relative group cursor-pointer"
+                className={`relative group ${item.type === "video" ? "" : "cursor-pointer"}`}
               >
                 {item.placeholder ? (
                   <div className="aspect-video rounded-xl bg-gradient-to-br from-muted/50 to-muted/30 border border-dashed border-muted-foreground/30 flex flex-col items-center justify-center gap-2 hover:border-primary/50 hover:bg-primary/5 transition-all">
@@ -184,11 +187,20 @@ const ExperienceCard = ({
                     <Plus className="absolute top-2 right-2 w-4 h-4 text-muted-foreground/30" />
                   </div>
                 ) : (
-                  <div className="aspect-video rounded-xl overflow-hidden">
+                  <div className={`${item.aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-video"} rounded-xl overflow-hidden bg-black relative`}>
                     {item.type === "video" ? (
-                      <div className="w-full h-full bg-muted flex items-center justify-center">
-                        <Play className="w-8 h-8 text-primary" />
-                      </div>
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        controls={false}
+                        disablePictureInPicture
+                        className="w-full h-full object-cover"
+                      >
+                        <source src={item.url} type="video/webm" />
+                        Your browser does not support the video tag.
+                      </video>
                     ) : (
                       <img
                         src={item.url}

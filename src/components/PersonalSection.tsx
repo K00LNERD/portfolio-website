@@ -1,11 +1,17 @@
 import { motion } from "framer-motion";
-import { Plane, ImagePlus, Video } from "lucide-react";
+import { Plane } from "lucide-react";
+
+interface TravelPhoto {
+  url: string;
+  aspectRatio: "landscape" | "portrait" | "square";
+}
 
 interface PersonalSectionProps {
   embedded?: boolean;
+  travelPhotos?: TravelPhoto[];
 }
 
-const PersonalSection = ({ embedded = false }: PersonalSectionProps) => {
+const PersonalSection = ({ embedded = false, travelPhotos = [] }: PersonalSectionProps) => {
   const content = (
     <>
       {!embedded && (
@@ -52,104 +58,63 @@ const PersonalSection = ({ embedded = false }: PersonalSectionProps) => {
       </motion.div>
 
       {/* Travel Gallery */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="space-y-4"
-      >
-        <h4 className={`font-display font-semibold ${embedded ? 'text-base' : 'text-lg'} mb-3`}>
-          Travel Gallery
-        </h4>
-        
-        {/* Main Feature Row - 2 large items */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Featured Video Placeholder */}
-          <div className="glass rounded-xl overflow-hidden aspect-video flex items-center justify-center group cursor-pointer hover:bg-primary/5 transition-colors">
-            <div className="text-center">
-              <Video className="w-12 h-12 text-muted-foreground/40 mx-auto mb-2 group-hover:text-primary/60 transition-colors" />
-              <p className="text-muted-foreground/60 text-sm">Add Featured Video</p>
-              <p className="text-muted-foreground/40 text-xs">Travel highlights reel</p>
-            </div>
-          </div>
-          
-          {/* Featured Image Placeholder */}
-          <div className="glass rounded-xl overflow-hidden aspect-video flex items-center justify-center group cursor-pointer hover:bg-primary/5 transition-colors">
-            <div className="text-center">
-              <ImagePlus className="w-12 h-12 text-muted-foreground/40 mx-auto mb-2 group-hover:text-primary/60 transition-colors" />
-              <p className="text-muted-foreground/60 text-sm">Add Featured Photo</p>
-              <p className="text-muted-foreground/40 text-xs">Favorite destination</p>
-            </div>
-          </div>
-        </div>
+      {travelPhotos.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="space-y-3"
+        >
+          <h4 className={`font-display font-semibold ${embedded ? 'text-base' : 'text-lg'} mb-3`}>
+            Travel Gallery
+          </h4>
 
-        {/* Secondary Row - 3 medium items */}
-        <div className="grid grid-cols-3 gap-4">
-          {[
-            { label: "Add Photo", sublabel: "Adventure moment" },
-            { label: "Add Video", sublabel: "Short clip", isVideo: true },
-            { label: "Add Photo", sublabel: "Scenic view" },
-          ].map((item, index) => (
-            <div 
-              key={index}
-              className="glass rounded-xl overflow-hidden aspect-square flex items-center justify-center group cursor-pointer hover:bg-primary/5 transition-colors"
-            >
-              <div className="text-center p-2">
-                {item.isVideo ? (
-                  <Video className="w-8 h-8 text-muted-foreground/40 mx-auto mb-1 group-hover:text-primary/60 transition-colors" />
-                ) : (
-                  <ImagePlus className="w-8 h-8 text-muted-foreground/40 mx-auto mb-1 group-hover:text-primary/60 transition-colors" />
-                )}
-                <p className="text-muted-foreground/60 text-xs">{item.label}</p>
-                <p className="text-muted-foreground/40 text-[10px] hidden md:block">{item.sublabel}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+          {/* Masonry-style grid optimized for 14 photos */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {travelPhotos.map((photo, index) => {
+              // Determine grid span based on aspect ratio and position
+              let colSpan = "col-span-1";
+              let rowSpan = "row-span-1";
 
-        {/* Third Row - 4 smaller items */}
-        <div className="grid grid-cols-4 gap-3">
-          {[
-            { label: "Photo", sublabel: "Culture" },
-            { label: "Photo", sublabel: "Food" },
-            { label: "Video", sublabel: "Vlog", isVideo: true },
-            { label: "Photo", sublabel: "Nature" },
-          ].map((item, index) => (
-            <div 
-              key={index}
-              className="glass rounded-lg overflow-hidden aspect-square flex items-center justify-center group cursor-pointer hover:bg-primary/5 transition-colors"
-            >
-              <div className="text-center p-1">
-                {item.isVideo ? (
-                  <Video className="w-6 h-6 text-muted-foreground/40 mx-auto mb-0.5 group-hover:text-primary/60 transition-colors" />
-                ) : (
-                  <ImagePlus className="w-6 h-6 text-muted-foreground/40 mx-auto mb-0.5 group-hover:text-primary/60 transition-colors" />
-                )}
-                <p className="text-muted-foreground/40 text-[10px]">{item.sublabel}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+              if (photo.aspectRatio === "landscape") {
+                colSpan = "col-span-2";
+              } else if (photo.aspectRatio === "portrait") {
+                rowSpan = "row-span-2";
+              }
 
-        {/* Fourth Row - 2 wide items */}
-        <div className="grid grid-cols-2 gap-4">
-          <div className="glass rounded-xl overflow-hidden aspect-[2/1] flex items-center justify-center group cursor-pointer hover:bg-primary/5 transition-colors">
-            <div className="text-center">
-              <Video className="w-10 h-10 text-muted-foreground/40 mx-auto mb-1 group-hover:text-primary/60 transition-colors" />
-              <p className="text-muted-foreground/60 text-sm">Add Panoramic Video</p>
-              <p className="text-muted-foreground/40 text-xs">Wide landscape shot</p>
-            </div>
+              // Determine aspect ratio class based on actual image proportions
+              let aspectClass = "aspect-square";
+              if (photo.aspectRatio === "landscape") {
+                aspectClass = "aspect-video"; // 16:9 for wide landscape
+              } else if (photo.aspectRatio === "portrait") {
+                aspectClass = "aspect-[3/4]"; // 3:4 for portrait
+              } else if (photo.aspectRatio === "square") {
+                aspectClass = "aspect-[4/3]"; // 4:3 for square-ish images (actually ~1.3:1)
+              }
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  viewport={{ once: true }}
+                  className={`${colSpan} ${rowSpan} relative group cursor-pointer`}
+                >
+                  <div className={`rounded-xl overflow-hidden ${aspectClass}`}>
+                    <img
+                      src={photo.url}
+                      alt={`Travel photo ${index + 1}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
-          <div className="glass rounded-xl overflow-hidden aspect-[2/1] flex items-center justify-center group cursor-pointer hover:bg-primary/5 transition-colors">
-            <div className="text-center">
-              <ImagePlus className="w-10 h-10 text-muted-foreground/40 mx-auto mb-1 group-hover:text-primary/60 transition-colors" />
-              <p className="text-muted-foreground/60 text-sm">Add Panoramic Photo</p>
-              <p className="text-muted-foreground/40 text-xs">Mountain or beach view</p>
-            </div>
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      )}
 
       {/* Quote */}
       {!embedded && (
