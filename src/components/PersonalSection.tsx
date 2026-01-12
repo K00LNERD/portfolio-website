@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Plane, Gamepad2, Target } from "lucide-react";
+import { Plane, ImagePlus, Video } from "lucide-react";
 
 interface PersonalSectionProps {
   embedded?: boolean;
@@ -25,72 +25,131 @@ const PersonalSection = ({ embedded = false }: PersonalSectionProps) => {
         </motion.div>
       )}
 
-      <div className={`grid grid-cols-1 ${embedded ? 'md:grid-cols-3 gap-4' : 'md:grid-cols-3 gap-8'}`}>
-        {/* Digital Nomad */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true }}
-          className={`glass rounded-2xl hover-glow text-center ${embedded ? 'p-5' : 'p-8'}`}
-        >
-          <div className={`${embedded ? 'w-12 h-12 mb-4' : 'w-16 h-16 mb-6'} mx-auto bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center`}>
+      {/* Digital Nomad Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        viewport={{ once: true }}
+        className={`glass rounded-2xl ${embedded ? 'p-5 mb-4' : 'p-8 mb-8'}`}
+      >
+        <div className="flex items-center gap-4 mb-4">
+          <div className={`${embedded ? 'w-12 h-12' : 'w-16 h-16'} bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center`}>
             <Plane className={`${embedded ? 'w-6 h-6' : 'w-8 h-8'} text-primary`} />
           </div>
-          <h3 className={`font-display font-bold mb-2 ${embedded ? 'text-lg' : 'text-2xl mb-4'}`}>Digital Nomad</h3>
-          <p className={`font-bold text-gradient mb-1 ${embedded ? 'text-3xl' : 'text-5xl mb-2'}`}>2+</p>
-          <p className={`text-muted-foreground ${embedded ? 'text-xs mb-2' : 'mb-4'}`}>Years of Remote Travel</p>
-          {!embedded && (
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Working remotely while exploring new cultures — every destination brings fresh perspective to problem-solving and product thinking.
-            </p>
-          )}
-        </motion.div>
-
-        {/* Chess */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className={`glass rounded-2xl hover-glow text-center ${embedded ? 'p-5' : 'p-8'}`}
-        >
-          <div className={`${embedded ? 'w-12 h-12 mb-4' : 'w-16 h-16 mb-6'} mx-auto bg-gradient-to-br from-secondary/20 to-orange-400/20 rounded-2xl flex items-center justify-center`}>
-            <Target className={`${embedded ? 'w-6 h-6' : 'w-8 h-8'} text-secondary`} />
+          <div>
+            <h3 className={`font-display font-bold ${embedded ? 'text-lg' : 'text-2xl'}`}>Digital Nomad</h3>
+            <p className="text-muted-foreground text-sm">2+ Years of Remote Travel</p>
           </div>
-          <h3 className={`font-display font-bold mb-2 ${embedded ? 'text-lg' : 'text-2xl mb-4'}`}>Chess Enthusiast</h3>
-          <p className={`text-muted-foreground ${embedded ? 'text-xs mb-2' : 'mb-6'}`}>
-            Strategy & Pattern Recognition
-          </p>
-          {!embedded && (
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Chess mirrors product strategy — anticipating moves, optimizing for long-term outcomes, and making decisions with incomplete information.
-            </p>
-          )}
-        </motion.div>
-
-        {/* Badminton */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className={`glass rounded-2xl hover-glow text-center ${embedded ? 'p-5' : 'p-8'}`}
-        >
-          <div className={`${embedded ? 'w-12 h-12 mb-4' : 'w-16 h-16 mb-6'} mx-auto bg-gradient-to-br from-emerald-400/20 to-teal-500/20 rounded-2xl flex items-center justify-center`}>
-            <Gamepad2 className={`${embedded ? 'w-6 h-6' : 'w-8 h-8'} text-emerald-400`} />
+          <div className="ml-auto text-right">
+            <p className={`font-bold text-gradient ${embedded ? 'text-3xl' : 'text-4xl'}`}>2+</p>
+            <p className="text-muted-foreground text-xs">Years</p>
           </div>
-          <h3 className={`font-display font-bold mb-2 ${embedded ? 'text-lg' : 'text-2xl mb-4'}`}>Badminton Player</h3>
-          <p className={`text-muted-foreground ${embedded ? 'text-xs mb-2' : 'mb-6'}`}>
-            Speed & Agility
-          </p>
-          {!embedded && (
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Quick reflexes, endurance, and the balance between offense and defense — skills that translate to fast-paced startup environments.
-            </p>
-          )}
-        </motion.div>
-      </div>
+        </div>
+        <p className={`text-muted-foreground ${embedded ? 'text-sm' : 'text-base'} leading-relaxed`}>
+          Working remotely while exploring new cultures — every destination brings fresh perspective to problem-solving and product thinking.
+        </p>
+      </motion.div>
+
+      {/* Travel Gallery */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="space-y-4"
+      >
+        <h4 className={`font-display font-semibold ${embedded ? 'text-base' : 'text-lg'} mb-3`}>
+          Travel Gallery
+        </h4>
+        
+        {/* Main Feature Row - 2 large items */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Featured Video Placeholder */}
+          <div className="glass rounded-xl overflow-hidden aspect-video flex items-center justify-center group cursor-pointer hover:bg-primary/5 transition-colors">
+            <div className="text-center">
+              <Video className="w-12 h-12 text-muted-foreground/40 mx-auto mb-2 group-hover:text-primary/60 transition-colors" />
+              <p className="text-muted-foreground/60 text-sm">Add Featured Video</p>
+              <p className="text-muted-foreground/40 text-xs">Travel highlights reel</p>
+            </div>
+          </div>
+          
+          {/* Featured Image Placeholder */}
+          <div className="glass rounded-xl overflow-hidden aspect-video flex items-center justify-center group cursor-pointer hover:bg-primary/5 transition-colors">
+            <div className="text-center">
+              <ImagePlus className="w-12 h-12 text-muted-foreground/40 mx-auto mb-2 group-hover:text-primary/60 transition-colors" />
+              <p className="text-muted-foreground/60 text-sm">Add Featured Photo</p>
+              <p className="text-muted-foreground/40 text-xs">Favorite destination</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Secondary Row - 3 medium items */}
+        <div className="grid grid-cols-3 gap-4">
+          {[
+            { label: "Add Photo", sublabel: "Adventure moment" },
+            { label: "Add Video", sublabel: "Short clip", isVideo: true },
+            { label: "Add Photo", sublabel: "Scenic view" },
+          ].map((item, index) => (
+            <div 
+              key={index}
+              className="glass rounded-xl overflow-hidden aspect-square flex items-center justify-center group cursor-pointer hover:bg-primary/5 transition-colors"
+            >
+              <div className="text-center p-2">
+                {item.isVideo ? (
+                  <Video className="w-8 h-8 text-muted-foreground/40 mx-auto mb-1 group-hover:text-primary/60 transition-colors" />
+                ) : (
+                  <ImagePlus className="w-8 h-8 text-muted-foreground/40 mx-auto mb-1 group-hover:text-primary/60 transition-colors" />
+                )}
+                <p className="text-muted-foreground/60 text-xs">{item.label}</p>
+                <p className="text-muted-foreground/40 text-[10px] hidden md:block">{item.sublabel}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Third Row - 4 smaller items */}
+        <div className="grid grid-cols-4 gap-3">
+          {[
+            { label: "Photo", sublabel: "Culture" },
+            { label: "Photo", sublabel: "Food" },
+            { label: "Video", sublabel: "Vlog", isVideo: true },
+            { label: "Photo", sublabel: "Nature" },
+          ].map((item, index) => (
+            <div 
+              key={index}
+              className="glass rounded-lg overflow-hidden aspect-square flex items-center justify-center group cursor-pointer hover:bg-primary/5 transition-colors"
+            >
+              <div className="text-center p-1">
+                {item.isVideo ? (
+                  <Video className="w-6 h-6 text-muted-foreground/40 mx-auto mb-0.5 group-hover:text-primary/60 transition-colors" />
+                ) : (
+                  <ImagePlus className="w-6 h-6 text-muted-foreground/40 mx-auto mb-0.5 group-hover:text-primary/60 transition-colors" />
+                )}
+                <p className="text-muted-foreground/40 text-[10px]">{item.sublabel}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Fourth Row - 2 wide items */}
+        <div className="grid grid-cols-2 gap-4">
+          <div className="glass rounded-xl overflow-hidden aspect-[2/1] flex items-center justify-center group cursor-pointer hover:bg-primary/5 transition-colors">
+            <div className="text-center">
+              <Video className="w-10 h-10 text-muted-foreground/40 mx-auto mb-1 group-hover:text-primary/60 transition-colors" />
+              <p className="text-muted-foreground/60 text-sm">Add Panoramic Video</p>
+              <p className="text-muted-foreground/40 text-xs">Wide landscape shot</p>
+            </div>
+          </div>
+          <div className="glass rounded-xl overflow-hidden aspect-[2/1] flex items-center justify-center group cursor-pointer hover:bg-primary/5 transition-colors">
+            <div className="text-center">
+              <ImagePlus className="w-10 h-10 text-muted-foreground/40 mx-auto mb-1 group-hover:text-primary/60 transition-colors" />
+              <p className="text-muted-foreground/60 text-sm">Add Panoramic Photo</p>
+              <p className="text-muted-foreground/40 text-xs">Mountain or beach view</p>
+            </div>
+          </div>
+        </div>
+      </motion.div>
 
       {/* Quote */}
       {!embedded && (

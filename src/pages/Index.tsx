@@ -71,31 +71,6 @@ const Index = () => {
               />
             </TimelineTile>
 
-            {/* MBA Journey */}
-            <TimelineTile
-              id="mba"
-              year="2024-26"
-              title="MBA Journey"
-              subtitle="IIFT Kolkata • International Business"
-              icon="education"
-            >
-              <EducationCard
-                institution="Indian Institute of Foreign Trade (IIFT)"
-                degree="Master of Business Administration"
-                specialization="International Business"
-                duration="2024 - 2026"
-                achievements={[
-                  "Pursuing specialization in International Business Strategy",
-                  "Bridging technical expertise with business acumen",
-                  "Focus on product management and market strategy",
-                ]}
-                certifications={[
-                  { name: "Product Management Marketing", provider: "Udemy", year: "2024" },
-                  { name: "Product Management 101", provider: "Udemy", year: "2024" },
-                ]}
-              />
-            </TimelineTile>
-
             {/* Blockchain Leadership */}
             <TimelineTile
               id="blockchain-lead"
@@ -168,15 +143,31 @@ const Index = () => {
               />
             </TimelineTile>
 
-            {/* Education */}
+            {/* Education Journey */}
             <TimelineTile
               id="education"
-              year="2019-23"
-              title="Education & Foundations"
-              subtitle="VIT Vellore • B.Tech ECE"
+              year="2019-26"
+              title="Education Journey"
+              subtitle="IIFT Kolkata • VIT Vellore"
               icon="education"
             >
               <div className="space-y-6">
+                <EducationCard
+                  institution="Indian Institute of Foreign Trade (IIFT)"
+                  degree="Master of Business Administration"
+                  specialization="International Business"
+                  duration="2024 - 2026"
+                  achievements={[
+                    "Pursuing specialization in International Business Strategy",
+                    "Bridging technical expertise with business acumen",
+                    "Focus on product management and market strategy",
+                  ]}
+                  certifications={[
+                    { name: "Product Management Marketing", provider: "Udemy", year: "2024" },
+                    { name: "Product Management 101", provider: "Udemy", year: "2024" },
+                  ]}
+                />
+
                 <EducationCard
                   institution="VIT Vellore"
                   degree="Bachelor of Technology"
@@ -216,7 +207,7 @@ const Index = () => {
               id="personal"
               year="Beyond"
               title="Personal Journey"
-              subtitle="Digital Nomad • Chess & Badminton"
+              subtitle="Digital Nomad • Travel Adventures"
               icon="personal"
             >
               <PersonalSection embedded />
