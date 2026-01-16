@@ -254,23 +254,91 @@ const Index = () => {
               subtitle="Building ideas into reality"
               icon="work"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <ProjectCard
-                  title="Project Name"
-                  description="Add your project description here. Explain what the project does, the problem it solves, and any notable features."
-                  technologies={["React", "TypeScript", "Node.js"]}
-                  category="Web App"
-                  year="2024"
-                  githubUrl="https://github.com/K00LNERD"
-                />
-                <ProjectCard
-                  title="Another Project"
-                  description="Add another project description here. You can add as many projects as you want by duplicating this ProjectCard component."
-                  technologies={["Solidity", "Web3", "Ethereum"]}
-                  category="Blockchain"
-                  year="2023"
-                  githubUrl="https://github.com/K00LNERD"
-                />
+              <div className="relative -mx-4 px-4">
+                <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+                  <div className="flex-shrink-0 w-80 snap-start">
+                    <ProjectCard
+                      title="Prepology"
+                      description="AI-powered interview preparation platform helping candidates practice and improve their interview skills with personalized feedback."
+                      technologies={["React", "AI/ML", "Node.js"]}
+                      category="EdTech"
+                      year="2024"
+                      githubUrl="https://github.com/K00LNERD"
+                    />
+                  </div>
+                  <div className="flex-shrink-0 w-80 snap-start">
+                    <ProjectCard
+                      title="chAI News"
+                      description="AI-curated news aggregator that delivers personalized news feeds using natural language processing and machine learning algorithms."
+                      technologies={["Python", "NLP", "AI/ML"]}
+                      category="AI"
+                      year="2023"
+                      githubUrl="https://github.com/K00LNERD"
+                    />
+                  </div>
+                  <div className="flex-shrink-0 w-80 snap-start">
+                    <ProjectCard
+                      title="AR eBook Reader"
+                      description="Augmented reality ebook reader that brings books to life with interactive 3D models, animations, and immersive reading experiences."
+                      technologies={["Unity", "ARCore", "C#"]}
+                      category="AR/VR"
+                      year="2022"
+                      githubUrl="https://github.com/K00LNERD"
+                    />
+                  </div>
+                  <div className="flex-shrink-0 w-80 snap-start">
+                    <ProjectCard
+                      title="IoT Health Monitor"
+                      description="IoT and EMG-based health monitoring system for real-time tracking of vital signs and muscle activity with cloud analytics."
+                      technologies={["IoT", "EMG Sensors", "Arduino", "Cloud"]}
+                      category="Healthcare"
+                      year="2022"
+                      githubUrl="https://github.com/K00LNERD"
+                    />
+                  </div>
+                  <div className="flex-shrink-0 w-80 snap-start">
+                    <ProjectCard
+                      title="YOLO Object Detection"
+                      description="Computer vision deep learning project using YOLO algorithm for real-time object detection and classification."
+                      technologies={["Python", "YOLO", "OpenCV", "TensorFlow"]}
+                      category="Deep Learning"
+                      year="2021"
+                      githubUrl="https://github.com/K00LNERD"
+                    />
+                  </div>
+                  <div className="flex-shrink-0 w-80 snap-start">
+                    <ProjectCard
+                      title="IoT Home Automation"
+                      description="Smart home automation system using IoT sensors and microcontrollers for remote control of appliances and energy monitoring."
+                      technologies={["IoT", "Raspberry Pi", "MQTT", "Mobile App"]}
+                      category="IoT"
+                      year="2021"
+                      githubUrl="https://github.com/K00LNERD"
+                    />
+                  </div>
+                  <div className="flex-shrink-0 w-80 snap-start">
+                    <ProjectCard
+                      title="GauntSlate"
+                      description="Sign language to text translation glove using flex sensors and machine learning to bridge communication gaps for the deaf community."
+                      technologies={["Arduino", "ML", "Flex Sensors", "Python"]}
+                      category="Accessibility"
+                      year="2020"
+                      githubUrl="https://github.com/K00LNERD"
+                    />
+                  </div>
+                  <div className="flex-shrink-0 w-80 snap-start">
+                    <ProjectCard
+                      title="Gesture Control Robot"
+                      description="Hand gesture controlled robot using accelerometer and wireless communication for intuitive robot navigation and control."
+                      technologies={["Arduino", "Accelerometer", "RF Module"]}
+                      category="Robotics"
+                      year="2020"
+                      githubUrl="https://github.com/K00LNERD"
+                    />
+                  </div>
+                </div>
+                {/* Scroll hint gradient */}
+                <div className="absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-background/80 to-transparent pointer-events-none" />
               </div>
             </TimelineTile>
 
