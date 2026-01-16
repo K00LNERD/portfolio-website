@@ -1,0 +1,120 @@
+import { motion } from "framer-motion";
+import { ExternalLink, Github, Calendar, Tag } from "lucide-react";
+
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  technologies: string[];
+  image?: string;
+  liveUrl?: string;
+  githubUrl?: string;
+  year?: string;
+  category?: string;
+}
+
+const ProjectCard = ({
+  title,
+  description,
+  technologies,
+  image,
+  liveUrl,
+  githubUrl,
+  year,
+  category,
+}: ProjectCardProps) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="glass rounded-2xl overflow-hidden group hover:glow-cyan transition-all duration-300"
+    >
+      {/* Project Image */}
+      {image && (
+        <div className="relative h-48 overflow-hidden">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+
+          {/* Category Badge */}
+          {category && (
+            <div className="absolute top-3 left-3">
+              <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-medium flex items-center gap-1">
+                <Tag className="w-3 h-3" />
+                {category}
+              </span>
+            </div>
+          )}
+
+          {/* Year Badge */}
+          {year && (
+            <div className="absolute top-3 right-3">
+              <span className="px-3 py-1 rounded-full bg-secondary/20 text-secondary text-xs font-medium flex items-center gap-1">
+                <Calendar className="w-3 h-3" />
+                {year}
+              </span>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Content */}
+      <div className="p-5">
+        <h3 className="text-xl font-display font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+          {title}
+        </h3>
+
+        <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+          {description}
+        </p>
+
+        {/* Technologies */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {technologies.map((tech, index) => (
+            <span
+              key={index}
+              className="px-2 py-1 rounded-md bg-muted/50 text-muted-foreground text-xs font-medium"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* Links */}
+        <div className="flex items-center gap-3 pt-3 border-t border-border/50">
+          {liveUrl && (
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Live Demo
+            </a>
+          )}
+          {githubUrl && (
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Github className="w-4 h-4" />
+              Source
+            </a>
+          )}
+          {!liveUrl && !githubUrl && (
+            <span className="text-sm text-muted-foreground">Private Project</span>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+export default ProjectCard;

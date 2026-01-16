@@ -7,6 +7,7 @@ import SkillsSection from "@/components/SkillsSection";
 import ImpactDashboard from "@/components/ImpactDashboard";
 import PersonalSection from "@/components/PersonalSection";
 import ContactSection from "@/components/ContactSection";
+import ProjectCard from "@/components/ProjectCard";
 import techBackground from "@/assets/tech-background.jpg";
 import cars24Image1 from "@/assets/cars24-1.jpeg";
 import cars24Image2 from "@/assets/cars24-2.jpeg";
@@ -242,6 +243,34 @@ const Index = () => {
                   ]}
                 />
                 
+              </div>
+            </TimelineTile>
+
+            {/* Projects Section */}
+            <TimelineTile
+              id="projects"
+              year="Projects"
+              title="Side Projects"
+              subtitle="Building ideas into reality"
+              icon="work"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <ProjectCard
+                  title="Project Name"
+                  description="Add your project description here. Explain what the project does, the problem it solves, and any notable features."
+                  technologies={["React", "TypeScript", "Node.js"]}
+                  category="Web App"
+                  year="2024"
+                  githubUrl="https://github.com/K00LNERD"
+                />
+                <ProjectCard
+                  title="Another Project"
+                  description="Add another project description here. You can add as many projects as you want by duplicating this ProjectCard component."
+                  technologies={["Solidity", "Web3", "Ethereum"]}
+                  category="Blockchain"
+                  year="2023"
+                  githubUrl="https://github.com/K00LNERD"
+                />
               </div>
             </TimelineTile>
 

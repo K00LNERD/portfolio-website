@@ -13,6 +13,7 @@ const timelineItems: TimelineItem[] = [
   { id: "blockchain-lead", year: "2024", label: "Blockchain Leadership" },
   { id: "blockchain-dev", year: "2022-23", label: "Developer Foundations" },
   { id: "education", year: "2019-23", label: "Education" },
+  { id: "projects", year: "Projects", label: "Side Projects" },
   { id: "personal", year: "Beyond", label: "Personal" },
 ];
 
