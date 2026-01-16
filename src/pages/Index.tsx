@@ -30,7 +30,6 @@ import travelImage5 from "@/assets/t-5.jpeg";
 import travelImage6 from "@/assets/t-6.jpeg";
 import travelImage7 from "@/assets/t-7.jpeg";
 import travelImage8 from "@/assets/t-8.jpeg";
-import travelImage9 from "@/assets/t-9.jpeg";
 import travelImage10 from "@/assets/t-10.jpeg";
 import travelImage11 from "@/assets/t-11.jpeg";
 import travelImage12 from "@/assets/t-12.jpeg";
@@ -243,21 +242,6 @@ const Index = () => {
                   ]}
                 />
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <EducationCard
-                    institution="Delhi Public School, Bhilai"
-                    degree="Class XII"
-                    duration="2018"
-                    score="68.6%"
-                  />
-                  <EducationCard
-                    institution="Delhi Public School, Durg"
-                    degree="Class X"
-                    duration="2016"
-                    score="CGPA: 10/10"
-                    achievements={["Perfect Score Achievement"]}
-                  />
-                </div>
               </div>
             </TimelineTile>
 
