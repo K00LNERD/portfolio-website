@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Calendar, Tag } from "lucide-react";
+import { ExternalLink, Github, Calendar, Tag, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
 
 interface ProjectCardProps {
   title: string;
@@ -24,6 +25,8 @@ const ProjectCard = ({
   year,
   category,
 }: ProjectCardProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -93,9 +96,27 @@ const ProjectCard = ({
           {title}
         </h3>
 
-        <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-          {description}
-        </p>
+        <div className="mb-4">
+          <p className={`text-muted-foreground text-sm ${isExpanded ? '' : 'line-clamp-3'}`}>
+            {description}
+          </p>
+          {description.length > 150 && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="text-primary text-xs mt-1 flex items-center gap-1 hover:text-primary/80 transition-colors"
+            >
+              {isExpanded ? (
+                <>
+                  Show less <ChevronUp className="w-3 h-3" />
+                </>
+              ) : (
+                <>
+                  Read more <ChevronDown className="w-3 h-3" />
+                </>
+              )}
+            </button>
+          )}
+        </div>
 
         {/* Technologies */}
         <div className="flex flex-wrap gap-2 mb-4">
