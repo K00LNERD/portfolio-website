@@ -39,6 +39,9 @@ import travelImage14 from "@/assets/t-14.jpeg";
 import chaiImage1 from "@/assets/chai-1.png";
 import chaiImage2 from "@/assets/chai-2.png";
 import chaiImage3 from "@/assets/chai-3.png";
+import yoloImage1 from "@/assets/yolo-1.jpeg";
+import yoloImage2 from "@/assets/yolo-2.jpeg";
+import yoloImage3 from "@/assets/yolo-3.jpeg";
 
 const Index = () => {
   return (
@@ -310,7 +313,8 @@ const Index = () => {
                       technologies={["Python", "YOLO", "OpenCV", "TensorFlow"]}
                       category="Deep Learning"
                       year="2021"
-                      githubUrl="https://github.com/K00LNERD"
+                      image={yoloImage1}
+                      githubUrl="https://github.com/K00LNERD/yolo"
                     />
                   </div>
                   <div className="flex-shrink-0 w-96 snap-start">
