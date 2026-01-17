@@ -64,14 +64,23 @@ const ProjectCard = ({
         </div>
       )}
 
-      {/* Loom Video Embed */}
+      {/* Video Embed (Loom or YouTube) */}
       {videoUrl && (
         <div className="relative overflow-hidden">
           <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
             <iframe
-              src={videoUrl.replace('/share/', '/embed/')}
+              src={
+                videoUrl.includes('loom.com')
+                  ? videoUrl.replace('/share/', '/embed/')
+                  : videoUrl.includes('youtube.com/watch?v=')
+                  ? videoUrl.replace('watch?v=', 'embed/')
+                  : videoUrl.includes('youtu.be/')
+                  ? videoUrl.replace('youtu.be/', 'youtube.com/embed/')
+                  : videoUrl
+              }
               frameBorder="0"
               allowFullScreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
             />
           </div>

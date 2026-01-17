@@ -284,11 +284,12 @@ const Index = () => {
                   <div className="flex-shrink-0 w-96 snap-start">
                     <ProjectCard
                       title="AR eBook Reader"
-                      description="Augmented reality ebook reader that brings books to life with interactive 3D models, animations, and immersive reading experiences."
-                      technologies={["Unity", "ARCore", "C#"]}
+                      description="Machine vision based object tracking project for AR glasses. Avid book readers can pick any physical book and overlay a digital copy of another book, experiencing the immersive feel of reading a physical book at the cost of an epub."
+                      technologies={["Computer Vision", "AR", "Object Tracking", "Machine Learning"]}
                       category="AR/VR"
                       year="2022"
-                      githubUrl="https://github.com/K00LNERD"
+                      videoUrl="https://www.youtube.com/watch?v=YTtFW45mvKg"
+                      githubUrl="https://www.youtube.com/watch?v=YTtFW45mvKg"
                     />
                   </div>
                   <div className="flex-shrink-0 w-96 snap-start">
