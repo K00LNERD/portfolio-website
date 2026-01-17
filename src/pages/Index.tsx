@@ -36,6 +36,9 @@ import travelImage11 from "@/assets/t-11.jpeg";
 import travelImage12 from "@/assets/t-12.jpeg";
 import travelImage13 from "@/assets/t-13.jpeg";
 import travelImage14 from "@/assets/t-14.jpeg";
+import chaiImage1 from "@/assets/chai-1.png";
+import chaiImage2 from "@/assets/chai-2.png";
+import chaiImage3 from "@/assets/chai-3.png";
 
 const Index = () => {
   return (
@@ -270,11 +273,12 @@ const Index = () => {
                   <div className="flex-shrink-0 w-96 snap-start">
                     <ProjectCard
                       title="chAI News"
-                      description="AI-curated news aggregator that delivers personalized news feeds using natural language processing and machine learning algorithms."
-                      technologies={["Python", "NLP", "AI/ML"]}
+                      description="AI-powered news portal that auto-generates articles using LLMs from public news APIs. Curates science, tech, and business news based on virality and writes in Gen-Z tone, delivering fresh content frequently."
+                      technologies={["React", "LLM", "News API", "AI"]}
                       category="AI"
                       year="2023"
-                      githubUrl="https://github.com/K00LNERD"
+                      liveUrl="https://chai-frontend-green.vercel.app/"
+                      image={chaiImage1}
                     />
                   </div>
                   <div className="flex-shrink-0 w-96 snap-start">
