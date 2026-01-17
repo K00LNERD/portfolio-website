@@ -262,7 +262,7 @@ const Index = () => {
                   <div className="flex-shrink-0 w-96 snap-start">
                     <ProjectCard
                       title="Prepomania"
-                      description="AI-powered interview preparation platform helping candidates practice and improve their interview skills with personalized feedback."
+                      description="AI-powered Avatar based interview preparation platform helping candidates practice and improve their interview skills with personalized feedback and detailed report of answer quality, body language and tonality."
                       technologies={["React", "AI/ML", "Node.js"]}
                       category="EdTech"
                       year="2024"
@@ -295,11 +295,12 @@ const Index = () => {
                   <div className="flex-shrink-0 w-96 snap-start">
                     <ProjectCard
                       title="IoT Health Monitor"
-                      description="IoT and EMG-based health monitoring system for real-time tracking of vital signs and muscle activity with cloud analytics."
-                      technologies={["IoT", "EMG Sensors", "Arduino", "Cloud"]}
+                      description="IoT-enabled EMG monitoring health system with SASS-based signal denoising for real-time tracking of vital signs and muscle activity. Published research demonstrating cloud-based analytics and healthcare IoT integration."
+                      technologies={["IoT", "EMG Sensors", "Arduino", "SASS", "Signal Processing"]}
                       category="Healthcare"
                       year="2022"
-                      githubUrl="https://github.com/K00LNERD"
+                      videoUrl="https://drive.google.com/file/d/1ysHOoBoZwv8HXxVPVevfPaN3nra4ewq6/view?usp=sharing"
+                      githubUrl="https://www.researchgate.net/publication/357719542_IoT_Enabled_EMG_Monitoring_Health_System_with_SASS_based_Signal_Denoising"
                     />
                   </div>
                   <div className="flex-shrink-0 w-96 snap-start">

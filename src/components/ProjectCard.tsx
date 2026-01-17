@@ -67,7 +67,7 @@ const ProjectCard = ({
         </div>
       )}
 
-      {/* Video Embed (Loom or YouTube) */}
+      {/* Video Embed (Loom, YouTube, or Google Drive) */}
       {videoUrl && (
         <div className="relative overflow-hidden">
           <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
@@ -76,9 +76,11 @@ const ProjectCard = ({
                 videoUrl.includes('loom.com')
                   ? videoUrl.replace('/share/', '/embed/')
                   : videoUrl.includes('youtube.com/watch?v=')
-                  ? videoUrl.replace('watch?v=', 'embed/')
+                  ? videoUrl.replace('watch?v=', 'embed/') + '?mute=1'
                   : videoUrl.includes('youtu.be/')
-                  ? videoUrl.replace('youtu.be/', 'youtube.com/embed/')
+                  ? videoUrl.replace('youtu.be/', 'youtube.com/embed/') + '?mute=1'
+                  : videoUrl.includes('drive.google.com/file/d/')
+                  ? videoUrl.replace('/view?usp=sharing', '/preview').replace('view?usp=sharing', 'preview')
                   : videoUrl
               }
               frameBorder="0"
