@@ -256,17 +256,18 @@ const Index = () => {
             >
               <div className="relative -mx-4 px-4">
                 <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
-                  <div className="flex-shrink-0 w-80 snap-start">
+                  <div className="flex-shrink-0 w-96 snap-start">
                     <ProjectCard
-                      title="Prepology"
+                      title="Prepomania"
                       description="AI-powered interview preparation platform helping candidates practice and improve their interview skills with personalized feedback."
                       technologies={["React", "AI/ML", "Node.js"]}
                       category="EdTech"
                       year="2024"
-                      githubUrl="https://github.com/K00LNERD"
+                      liveUrl="https://www.prepomania.com/"
+                      videoUrl="https://www.loom.com/share/3331fe8362194f15b0f65b507a77614e"
                     />
                   </div>
-                  <div className="flex-shrink-0 w-80 snap-start">
+                  <div className="flex-shrink-0 w-96 snap-start">
                     <ProjectCard
                       title="chAI News"
                       description="AI-curated news aggregator that delivers personalized news feeds using natural language processing and machine learning algorithms."
@@ -276,7 +277,7 @@ const Index = () => {
                       githubUrl="https://github.com/K00LNERD"
                     />
                   </div>
-                  <div className="flex-shrink-0 w-80 snap-start">
+                  <div className="flex-shrink-0 w-96 snap-start">
                     <ProjectCard
                       title="AR eBook Reader"
                       description="Augmented reality ebook reader that brings books to life with interactive 3D models, animations, and immersive reading experiences."
@@ -286,7 +287,7 @@ const Index = () => {
                       githubUrl="https://github.com/K00LNERD"
                     />
                   </div>
-                  <div className="flex-shrink-0 w-80 snap-start">
+                  <div className="flex-shrink-0 w-96 snap-start">
                     <ProjectCard
                       title="IoT Health Monitor"
                       description="IoT and EMG-based health monitoring system for real-time tracking of vital signs and muscle activity with cloud analytics."
@@ -296,7 +297,7 @@ const Index = () => {
                       githubUrl="https://github.com/K00LNERD"
                     />
                   </div>
-                  <div className="flex-shrink-0 w-80 snap-start">
+                  <div className="flex-shrink-0 w-96 snap-start">
                     <ProjectCard
                       title="YOLO Object Detection"
                       description="Computer vision deep learning project using YOLO algorithm for real-time object detection and classification."
@@ -306,7 +307,7 @@ const Index = () => {
                       githubUrl="https://github.com/K00LNERD"
                     />
                   </div>
-                  <div className="flex-shrink-0 w-80 snap-start">
+                  <div className="flex-shrink-0 w-96 snap-start">
                     <ProjectCard
                       title="IoT Home Automation"
                       description="Smart home automation system using IoT sensors and microcontrollers for remote control of appliances and energy monitoring."
@@ -316,7 +317,7 @@ const Index = () => {
                       githubUrl="https://github.com/K00LNERD"
                     />
                   </div>
-                  <div className="flex-shrink-0 w-80 snap-start">
+                  <div className="flex-shrink-0 w-96 snap-start">
                     <ProjectCard
                       title="GauntSlate"
                       description="Sign language to text translation glove using flex sensors and machine learning to bridge communication gaps for the deaf community."
@@ -326,7 +327,7 @@ const Index = () => {
                       githubUrl="https://github.com/K00LNERD"
                     />
                   </div>
-                  <div className="flex-shrink-0 w-80 snap-start">
+                  <div className="flex-shrink-0 w-96 snap-start">
                     <ProjectCard
                       title="Gesture Control Robot"
                       description="Hand gesture controlled robot using accelerometer and wireless communication for intuitive robot navigation and control."
