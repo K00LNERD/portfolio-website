@@ -42,6 +42,7 @@ import chaiImage3 from "@/assets/chai-3.png";
 import yoloImage1 from "@/assets/yolo-1.jpeg";
 import yoloImage2 from "@/assets/yolo-2.jpeg";
 import yoloImage3 from "@/assets/yolo-3.jpeg";
+import homeImage1 from "@/assets/home-1.png";
 
 const Index = () => {
   return (
@@ -261,6 +262,15 @@ const Index = () => {
               icon="work"
             >
               <div className="relative -mx-4 px-4">
+                {/* Scroll hint - right arrow */}
+                <div className="absolute right-8 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
+                  <div className="flex items-center gap-2 text-muted-foreground/50 animate-pulse">
+                    <span className="text-sm hidden md:block">Scroll</span>
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
                 <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
                   <div className="flex-shrink-0 w-96 snap-start">
                     <ProjectCard
@@ -324,7 +334,8 @@ const Index = () => {
                       technologies={["IoT", "Raspberry Pi", "MQTT", "Mobile App"]}
                       category="IoT"
                       year="2021"
-                      githubUrl="https://github.com/K00LNERD"
+                      image={homeImage1}
+                      githubUrl="https://github.com/K00LNERD/Home-Automation"
                     />
                   </div>
                   <div className="flex-shrink-0 w-96 snap-start">
